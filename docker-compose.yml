@@ -1,0 +1,14 @@
+﻿version: '3'
+services:
+  postgresdb:
+      image: postgres:9.6
+      ports:
+        - 5432:5432
+      environment:
+        POSTGRES_PASSWORD: dev
+        DBPASS: dev
+      volumes:
+        - postgres-data:/var/lib/postgresql/data
+volumes:
+  postgres-data:
+    driver: local
