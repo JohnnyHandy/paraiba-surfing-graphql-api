@@ -2,12 +2,14 @@
 
 module Types
   class BreakFloorType < Types::BaseObject
-    field :id, ID, null: false
-    field :break_id, Integer, null: false
-    field :floor_id, Integer, null: false
-    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :floor, Types::FloorType
-    field :break, Types::BreakType
+    description 'Break Floor Type'
+
+    field :break, Types::BreakType, 'Type of break'
+    field :break_id, Integer, 'Break record id', null: false
+    field :created_at, GraphQL::Types::ISO8601DateTime, 'Date of Creation', null: false
+    field :floor, Types::FloorType, 'Type of floor'
+    field :floor_id, Integer, 'Floor record id', null: false
+    field :id, ID, 'Record id', null: false
+    field :updated_at, GraphQL::Types::ISO8601DateTime, 'Data of Update', null: false
   end
 end

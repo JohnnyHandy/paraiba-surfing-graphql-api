@@ -2,9 +2,11 @@
 
 module Types
   class TideType < Types::BaseObject
-    field :id, ID, null: false
-    field :name, String, null: false
-    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+    description 'Tide Type'
+
+    field :created_at, GraphQL::Types::ISO8601DateTime, 'Date of creation', null: false
+    field :id, ID, 'Record id', null: false
+    field :name, String, 'Tide level name', null: false
+    field :updated_at, GraphQL::Types::ISO8601DateTime, 'Last date of update', null: false
   end
 end

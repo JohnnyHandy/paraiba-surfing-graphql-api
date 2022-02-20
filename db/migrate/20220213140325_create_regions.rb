@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# rubocop:disable all
+
 class CreateRegions < ActiveRecord::Migration[6.1]
   def change
     create_table :regions do |t|
@@ -5,6 +9,6 @@ class CreateRegions < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :regions, :name
+    add_index :regions, :name, unique: true
   end
 end

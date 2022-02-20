@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# rubocop:disable all
+
 class CreateTides < ActiveRecord::Migration[6.1]
   def change
     create_table :tides do |t|
@@ -5,6 +9,6 @@ class CreateTides < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :tides, :name
+    add_index :tides, :name, unique: true
   end
 end

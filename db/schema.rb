@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_150424) do
     t.bigint "floor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["break_id", "floor_id"], name: "index_break_floors_on_break_id_and_floor_id", unique: true
     t.index ["break_id"], name: "index_break_floors_on_break_id"
     t.index ["floor_id"], name: "index_break_floors_on_floor_id"
   end
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_150424) do
     t.bigint "break_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["break_id", "season_id"], name: "index_break_seasons_on_break_id_and_season_id", unique: true
     t.index ["break_id"], name: "index_break_seasons_on_break_id"
     t.index ["season_id"], name: "index_break_seasons_on_season_id"
   end
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_150424) do
     t.bigint "break_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["break_id", "swell_id"], name: "index_break_swells_on_break_id_and_swell_id", unique: true
     t.index ["break_id"], name: "index_break_swells_on_break_id"
     t.index ["swell_id"], name: "index_break_swells_on_swell_id"
   end
@@ -47,6 +50,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_150424) do
     t.bigint "break_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["break_id", "tide_id"], name: "index_break_tides_on_break_id_and_tide_id", unique: true
     t.index ["break_id"], name: "index_break_tides_on_break_id"
     t.index ["tide_id"], name: "index_break_tides_on_tide_id"
   end
@@ -56,6 +60,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_150424) do
     t.bigint "wind_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["break_id", "wind_id"], name: "index_break_winds_on_break_id_and_wind_id", unique: true
     t.index ["break_id"], name: "index_break_winds_on_break_id"
     t.index ["wind_id"], name: "index_break_winds_on_wind_id"
   end
@@ -68,7 +73,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_150424) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_id"], name: "index_breaks_on_city_id"
-    t.index ["name"], name: "index_breaks_on_name"
+    t.index ["name"], name: "index_breaks_on_name", unique: true
   end
 
   create_table "cities", force: :cascade do |t|
@@ -76,7 +81,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_150424) do
     t.bigint "region_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_cities_on_name"
+    t.index ["name"], name: "index_cities_on_name", unique: true
     t.index ["region_id"], name: "index_cities_on_region_id"
   end
 
@@ -84,42 +89,42 @@ ActiveRecord::Schema.define(version: 2022_02_19_150424) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_floors_on_name"
+    t.index ["name"], name: "index_floors_on_name", unique: true
   end
 
   create_table "regions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_regions_on_name"
+    t.index ["name"], name: "index_regions_on_name", unique: true
   end
 
   create_table "seasons", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_seasons_on_name"
+    t.index ["name"], name: "index_seasons_on_name", unique: true
   end
 
   create_table "swells", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_swells_on_name"
+    t.index ["name"], name: "index_swells_on_name", unique: true
   end
 
   create_table "tides", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_tides_on_name"
+    t.index ["name"], name: "index_tides_on_name", unique: true
   end
 
   create_table "winds", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_winds_on_name"
+    t.index ["name"], name: "index_winds_on_name", unique: true
   end
 
   add_foreign_key "break_floors", "breaks"

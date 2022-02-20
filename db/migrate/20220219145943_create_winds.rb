@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# rubocop:disable all
+
 class CreateWinds < ActiveRecord::Migration[6.1]
   def change
     create_table :winds do |t|
@@ -5,6 +9,6 @@ class CreateWinds < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :winds, :name
+    add_index :winds, :name, unique: true
   end
 end

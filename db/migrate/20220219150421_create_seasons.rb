@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# rubocop:disable all
+
 class CreateSeasons < ActiveRecord::Migration[6.1]
   def change
     create_table :seasons do |t|
@@ -5,6 +9,6 @@ class CreateSeasons < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :seasons, :name
+    add_index :seasons, :name, unique: true
   end
 end

@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# rubocop:disable all
+
 class CreateSwells < ActiveRecord::Migration[6.1]
   def change
     create_table :swells do |t|
@@ -5,6 +9,6 @@ class CreateSwells < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :swells, :name
+    add_index :swells, :name, unique: true
   end
 end

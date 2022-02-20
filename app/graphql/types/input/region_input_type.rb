@@ -1,7 +1,10 @@
-﻿module Types
-    module Input
-      class RegionInputType < Types::BaseInputObject
-        argument :name, String, required: true
-      end
+# frozen_string_literal: true
+
+module Types
+  module Input
+    class RegionInputType < Types::BaseInputObject
+      description 'Input type example'
+      argument :name, String, required: true, description: 'Region name'
     end
   end
+end

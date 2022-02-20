@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# rubocop:disable all
+
 class CreateBreaks < ActiveRecord::Migration[6.1]
   def change
     create_table :breaks do |t|
@@ -8,6 +12,6 @@ class CreateBreaks < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :breaks, :name
+    add_index :breaks, :name, unique: true
   end
 end

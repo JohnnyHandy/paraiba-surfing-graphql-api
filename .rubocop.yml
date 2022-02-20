@@ -1,0 +1,14 @@
+﻿require:
+  - rubocop-rails
+  - rubocop-graphql
+inherit_mode:
+  merge:
+    - Exclude
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+  TargetRubyVersion: 2.7
