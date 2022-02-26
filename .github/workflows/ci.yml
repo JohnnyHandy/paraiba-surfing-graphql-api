@@ -28,7 +28,7 @@ jobs:
         image: postgres:9.6
         env:
           POSTGRES_USER: postgres
-          POSTGRES_DB: dev
+          POSTGRES_DB: test
           POSTGRES_PASSWORD: "postgres"
         ports:
           - 5432/tcp
@@ -49,7 +49,7 @@ jobs:
         env:
           RAILS_ENV: test
           DBHOST: localhost
-          DBPASS: dev
+          DBPASS: postgres
           DBUSER: postgres
           DBPORT: ${{ job.services.postgres.ports['5432'] }}
         run: |
