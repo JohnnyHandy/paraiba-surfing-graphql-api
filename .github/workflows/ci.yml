@@ -25,11 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11
+        image: postgres:9.6
         env:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: myapp_test
-          POSTGRES_PASSWORD: ""
+          DBPASS: dev
         ports: ["5432:5432"]
 
     steps:
@@ -46,8 +44,7 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: myapp
+          DBPASS: dev
         run: |
           bundle exec rails db:setup
 
