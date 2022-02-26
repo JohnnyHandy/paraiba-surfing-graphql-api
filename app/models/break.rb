@@ -17,6 +17,6 @@ class Break < ApplicationRecord
 
   has_many :break_tides, dependent: :nullify
   has_many :tides, through: :break_tides
-  
+
   enum crowd: { light: 0, mid: 1, heavy: 2 }
 end
