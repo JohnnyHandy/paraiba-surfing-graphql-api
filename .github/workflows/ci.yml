@@ -51,6 +51,7 @@ jobs:
           DBUSER: postgres
           DBPORT: ${{ job.services.postgres.ports[5432] }}
         run: |
+          echo ${{ job.services.postgres.ports[5432] }}
           bundle exec rails db:setup
 
       - name: Run tests
