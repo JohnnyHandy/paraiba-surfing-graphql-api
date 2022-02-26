@@ -51,6 +51,7 @@ jobs:
           DBHOST: localhost
           DBPASS: dev
           DBUSER: postgres
+          DBPORT: ${{ job.services.postgres.ports['5432'] }}
         run: |
           bundle exec rails db:setup
 
