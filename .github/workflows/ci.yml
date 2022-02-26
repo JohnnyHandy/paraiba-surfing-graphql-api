@@ -48,6 +48,7 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
+          DBHOST: localhost
           DBPASS: dev
           DBUSER: postgres
         run: |
