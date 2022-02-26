@@ -28,7 +28,9 @@ jobs:
         image: postgres:9.6
         env:
           DBPASS: dev
-        ports: ["5432:5432"]
+          DBUSER: postgres
+        ports:
+          - 5432:5432
 
     steps:
       - name: Checkout code
@@ -45,6 +47,7 @@ jobs:
         env:
           RAILS_ENV: test
           DBPASS: dev
+          DBUSER: postgres
         run: |
           bundle exec rails db:setup
 
