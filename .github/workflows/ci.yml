@@ -57,3 +57,9 @@ jobs:
 
       - name: Run tests
         run: bundle exec rspec
+        env:
+          RAILS_ENV: test
+          DBHOST: localhost
+          DBPASS: postgres
+          DBUSER: postgres
+          DBPORT: ${{ job.services.postgres.ports['5432'] }}
