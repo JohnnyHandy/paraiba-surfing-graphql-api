@@ -31,7 +31,8 @@ jobs:
           POSTGRES_DB: dev
           POSTGRES_PASSWORD: ""
         ports:
-          - 5432:5432
+          - 5432/tcp
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - name: Checkout code
@@ -49,9 +50,8 @@ jobs:
           RAILS_ENV: test
           DBPASS: dev
           DBUSER: postgres
-          DBPORT: ${{ job.services.postgres.ports[5432] }}
+          DBPORT: ${{ job.services.postgres.ports['5432'] }}
         run: |
-          echo ${{ job.services.postgres.ports[5432] }}
           bundle exec rails db:setup
 
       - name: Run tests
