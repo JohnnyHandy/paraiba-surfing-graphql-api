@@ -13,14 +13,13 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-
       - name: Run linters
         run: |
-          bin/rubocop --parallel
+          rubocop --parallel
       - name: Run security checks
         run: |
-          bin/bundler-audit --update
-          bin/brakeman -q -w2
+          bundler-audit --update
+          brakeman -q -w2
 
   tests:
     name: Tests
@@ -49,7 +48,7 @@ jobs:
           PGHOST: localhost
           PGUSER: myapp
         run: |
-          bin/rails db:setup
+          rails db:setup
 
       - name: Run tests
-        run: bin/rspec
+        run: rspec
