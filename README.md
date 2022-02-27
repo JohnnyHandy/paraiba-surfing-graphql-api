@@ -1,24 +1,16 @@
-# README
+# Paraiba-surfing-graphql-api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+GraphQL API used to provide data about surfing spots on Paraiba.
 
-Things you may want to cover:
+## Ruby Version
+2.7.1
 
-* Ruby version
+## Database
+Postgresql
 
-* System dependencies
+## CI/CD
+Github Actions
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tests
+Rspec
