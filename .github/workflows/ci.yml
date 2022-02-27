@@ -64,3 +64,8 @@ jobs:
           DBUSER: postgres
           DBPORT: ${{ job.services.postgres.ports['5432'] }}
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload test coverage
+        uses: actions/upload-artifact@v1
+        with:
+          name: code-coverage
+          path: coverage
