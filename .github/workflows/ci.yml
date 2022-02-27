@@ -63,3 +63,4 @@ jobs:
           DBPASS: postgres
           DBUSER: postgres
           DBPORT: ${{ job.services.postgres.ports['5432'] }}
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
